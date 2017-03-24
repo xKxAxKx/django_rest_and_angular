@@ -1,10 +1,24 @@
 import { Component } from '@angular/core';
+import { EntryService } from './services/entry';
+import { EntryStore } from './stores/entry';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'my-app',
+  template: `
+    <entries></entries>
+  `
 })
+
 export class AppComponent {
-  title = 'app works!';
+
+  constructor(
+    private entryService: EntryService
+  ) {
+  }
+
+  ngOnInit() {
+    // this.userService.fetchUser();
+  }
+
 }

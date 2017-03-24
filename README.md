@@ -6,7 +6,7 @@
 ## git cloneしたらやること
 ### Djangoのマイグレーション
 ```
-$ python manage.py migration
+$ python manage.py migrate
 ```
 
 ### npmのインストール
