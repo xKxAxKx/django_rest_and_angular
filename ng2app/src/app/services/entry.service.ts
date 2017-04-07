@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Http } from '@angular/http';
-import { Observable, Subject } from 'rxjs';
-import { IEntries } from '../models';
-
-
+import { RequestOptions, URLSearchParams, Jsonp, Response, RequestOptionsArgs } from "@angular/http";
+import { Observable, Subject } from  "rxjs";
+import "rxjs/add/operator/map";
+import { IEntries } from '../models/entry.models';
 
 @Injectable()
 export class EntryService {
@@ -15,12 +15,10 @@ export class EntryService {
   ){
   }
 
-  fetchEntry() {
-
+  // 新規ユーザーの取得
+  getEntry() {
     this.http
-      .get(
-        `http://localhost:8000/api/entries/`
-      )
+      .get(`http://127.0.0.1:8000/api/entries/`)
       .map(res => res.json())
       .subscribe(
         (res) => {
@@ -32,4 +30,5 @@ export class EntryService {
         () => {}
       );
   }
+
 }
