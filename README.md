@@ -12,6 +12,7 @@ $ python manage.py migrate
 ### npmのインストール
 ```
 $ npm install
+$ npm install --save intl@1.2.5 bootstrap@3.3.7 ng2-bootstrap@1.1.14
 ```
 
 ### アプリケーションの起動
