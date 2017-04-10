@@ -3,7 +3,8 @@ import { Http } from '@angular/http';
 import { RequestOptions, URLSearchParams, Jsonp, Response, RequestOptionsArgs } from "@angular/http";
 import { Observable, Subject } from  "rxjs";
 import "rxjs/add/operator/map";
-import { IEntries } from '../models/entry.models';
+
+import { IEntries, IEntry } from '../models/entry.model';
 
 @Injectable()
 export class EntryService {

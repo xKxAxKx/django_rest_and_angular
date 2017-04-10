@@ -6,6 +6,7 @@ import { JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { EntryService } from './services/entry.service';
+import { EntryStore } from './stores/entry.store';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { EntryService } from './services/entry.service';
     HttpModule,
     JsonpModule
   ],
-  providers: [EntryService],
+  providers: [
+    EntryService,
+    EntryStore,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

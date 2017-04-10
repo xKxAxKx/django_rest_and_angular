@@ -2,12 +2,12 @@ export interface IEntries {
   count: any,
   next: any,
   previous: any,
-  results: IEntries[]
+  results: IEntry[]
 }
 
 export interface IEntry {
   title: string,
   body: string,
-  created_at: string,
-  updated_at: string,
+  created_at: any,
+  updated_at: any
 }
