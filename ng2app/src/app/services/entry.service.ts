@@ -16,7 +16,7 @@ export class EntryService {
   ){
   }
 
-  // 新規ユーザーの取得
+  // エントリ一覧の取得
   getEntries(page) {
     this.http
       .get(`http://127.0.0.1:8000/api/entries/?limit=5&offset=` + page)
@@ -32,6 +32,7 @@ export class EntryService {
       );
   }
 
+  // 個別エントリの取得
   getEntry(id) {
     this.http
       .get(`http://127.0.0.1:8000/api/entries/` + id)
