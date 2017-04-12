@@ -21,7 +21,14 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     //エントリ情報を取得
-    this.entryService.getEntry();
+    this.entryService.getEntries('0');
+  }
+
+  prev(){
+  }
+
+  next(){
+
   }
 
 }

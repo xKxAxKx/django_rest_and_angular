@@ -17,9 +17,24 @@ export class EntryService {
   }
 
   // 新規ユーザーの取得
-  getEntry() {
+  getEntries(page) {
     this.http
-      .get(`http://127.0.0.1:8000/api/entries/`)
+      .get(`http://127.0.0.1:8000/api/entries/?limit=5&offset=` + page)
+      .map(res => res.json())
+      .subscribe(
+        (res) => {
+          this.fetchEntrySubject.next(res);
+        },
+        (err) => {
+          console.error(err);
+        },
+        () => {}
+      );
+  }
+
+  getEntry(id) {
+    this.http
+      .get(`http://127.0.0.1:8000/api/entries/` + id)
       .map(res => res.json())
       .subscribe(
         (res) => {

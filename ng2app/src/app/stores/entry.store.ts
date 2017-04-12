@@ -3,7 +3,6 @@ import { IEntries, IEntry } from '../models/entry.model';
 import { EntryService } from '../services/entry.service';
 
 
-
 @Injectable()
 export class EntryStore {
 
