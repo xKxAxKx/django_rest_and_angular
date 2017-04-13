@@ -13,7 +13,7 @@ export class EntriesStore {
   ){
 
     // 取得したエントリをストアに格納
-    this.entryService.fetchEntrySubject.subscribe(
+    this.entryService.fetchEntriesSubject.subscribe(
       (entries: IEntries) => {
         this.results = entries.results;
       }

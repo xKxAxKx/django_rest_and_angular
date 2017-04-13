@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { EntriesComponent } from './components/entries.component';
 import { EntriesService } from './services/entries.service';
 import { EntriesStore } from './stores/entries.store';
+import { DetailEntryComponent } from './components/detail-entry.component';
+import { DetailEntryService } from './services/detail-entry.service';
+import { DetailEntryStore } from './stores/detail-entry.store';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EntriesComponent,
+    DetailEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { EntriesStore } from './stores/entries.store';
   ],
   providers: [
     EntriesService,
-    EntriesStore
+    EntriesStore,
+    DetailEntryService,
+    DetailEntryStore
   ],
   bootstrap: [AppComponent]
 })

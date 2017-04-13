@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>{{title}}</h1>
+  <h2>{{title}}</h2>
   <div class="panel panel-default" *ngFor="let results of entriesStore.results">
-    <div class="panel-heading"><a href="/{{results.id}}">{{ results.title }}</a></div>
+    <div class="panel-heading"><a href="detail/{{ results.id }}">{{ results.title }}</a></div>
     <div class="panel-body pre-wrap" ng-bind="multiLineText">{{ results.body }}</div>
     <div class="panel-footer">{{ results.created_at | date}}</div>
   </div>

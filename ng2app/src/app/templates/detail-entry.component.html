@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>{{title}}</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading"><a href="detail/{{entry.id}}">{{ entry.title }}</a></div>
+    <div class="panel-body pre-wrap" ng-bind="multiLineText">{{ entry.body }}</div>
+    <div class="panel-footer">{{ entry.created_at | date}}</div>
+  </div>
+</div>
