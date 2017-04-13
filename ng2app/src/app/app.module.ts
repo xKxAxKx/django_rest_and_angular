@@ -2,26 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { JsonpModule } from '@angular/http';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { EntryService } from './services/entry.service';
-import { EntryStore } from './stores/entry.store';
+import { EntriesComponent } from './components/entries.component';
+import { EntriesService } from './services/entries.service';
+import { EntriesStore } from './stores/entries.store';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EntriesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    AppRoutingModule
   ],
   providers: [
-    EntryService,
-    EntryStore,
+    EntriesService,
+    EntriesStore
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

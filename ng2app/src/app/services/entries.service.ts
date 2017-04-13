@@ -4,10 +4,10 @@ import { RequestOptions, URLSearchParams, Jsonp, Response, RequestOptionsArgs } 
 import { Observable, Subject } from  "rxjs";
 import "rxjs/add/operator/map";
 
-import { IEntries, IEntry } from '../models/entry.model';
+import { IEntries, IResults } from '../models/entries.model';
 
 @Injectable()
-export class EntryService {
+export class EntriesService {
 
   fetchEntrySubject: Subject<IEntries> = new Subject<IEntries>();
 
@@ -16,8 +16,8 @@ export class EntryService {
   ){
   }
 
-  // エントリ一覧の取得
-  getEntries(page) {
+  // http://127.0.0.1:8000/api/entries/の取得
+  getEntries(page){
     this.http
       .get(`http://127.0.0.1:8000/api/entries/?limit=5&offset=` + page)
       .map(res => res.json())
@@ -31,21 +31,4 @@ export class EntryService {
         () => {}
       );
   }
-
-  // 個別エントリの取得
-  getEntry(id) {
-    this.http
-      .get(`http://127.0.0.1:8000/api/entries/` + id)
-      .map(res => res.json())
-      .subscribe(
-        (res) => {
-          this.fetchEntrySubject.next(res);
-        },
-        (err) => {
-          console.error(err);
-        },
-        () => {}
-      );
-  }
-
 }
