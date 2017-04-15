@@ -1,8 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { EntriesService } from '../services/entries.service';
-import { EntriesStore } from '../stores/entries.store';
-import { IEntries, IResults } from '../models/entries.model';
+import { IEntries } from '../models/entries.model';
 
 
 @Component({
@@ -12,14 +10,23 @@ import { IEntries, IResults } from '../models/entries.model';
 })
 export class EntriesComponent implements OnInit{
   title = 'エントリ一覧';
+  entries: IEntries[] = [];
+  error: any;
 
   public constructor(
     private entriesService: EntriesService,
-    private entriesStore: EntriesStore,
   ){}
+
+  getEntires() {
+    this.entriesService
+      .getEntries()
+      .then(entries => this.entries = entries)
+      .catch(error => this.error = error);
+  }
 
   ngOnInit() {
     //エントリ情報を取得
-    this.entriesService.getEntries('0')
+    // this.entriesService.getEntries(0);
+    this.getEntires();
   }
 }
