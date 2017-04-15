@@ -1,7 +1,7 @@
 # django_rest_and_angular
 ## これはなにか？
 * Django REST FrameworkでAPIを出力
-* AngularでAPIをレンダリングしてアレする
+* AngularでAPIをJson形式で受け取って、html出力
 
 ## git cloneしたらやること
 ### Djangoのマイグレーション
@@ -9,10 +9,15 @@
 $ python manage.py migrate
 ```
 
+### Djangoのadminユーザ作成
+```
+$ python manage.py createsuperuser
+```
+
 ### npmのインストール
 ```
 $ npm install
-$ npm install --save intl@1.2.5 bootstrap@3.3.7 ng2-bootstrap@1.1.14
+$ npm install --save intl bootstrap ng2-bootstrap
 ```
 
 ### アプリケーションの起動
