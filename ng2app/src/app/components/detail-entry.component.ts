@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 import { DetailEntryService } from '../services/detail-entry.service';
 import { IEntry } from '../models/entries.model';
@@ -12,21 +13,25 @@ import { IEntry } from '../models/entries.model';
 })
 export class DetailEntryComponent implements OnInit{
   title = 'entry';
-  entries: IEntry[] = [];
+  entry: IEntry[] = [];
   error: any;
+  id: number;
 
   public constructor(
+    private route: ActivatedRoute,
     private detailEntryService: DetailEntryService,
   ){}
 
   getEntry(id :number) {
     this.detailEntryService
       .getEntry(id)
-      .then(entries => this.entries = entries)
+      .then(entry => this.entry = entry)
       .catch(error => this.error = error);
   }
 
   ngOnInit() {
-    this.getEntry(1);
+    this.route.params
+      .switchMap((params: Params) => this.getEntry(params['id']))
+      .subscribe(entry => this.entry = entry);
   }
 }
