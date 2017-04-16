@@ -12,9 +12,9 @@ export class EntriesService {
   ){
   }
 
-  getEntries(){
+  getEntries(page: number){
     return this.http
-      .get(`http://127.0.0.1:8000/api/entries/`)
+      .get(`http://127.0.0.1:8000/api/entries/?limit=5&offset=` +((page * 5)-5))
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);

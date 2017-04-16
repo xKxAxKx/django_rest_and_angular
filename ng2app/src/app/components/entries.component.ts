@@ -9,7 +9,7 @@ import { IEntries } from '../models/entries.model';
   styleUrls: ['../static/entries.component.css']
 })
 export class EntriesComponent implements OnInit{
-  title = 'エントリ一覧';
+  title = 'entries';
   entries: IEntries[] = [];
   error: any;
 
@@ -17,16 +17,14 @@ export class EntriesComponent implements OnInit{
     private entriesService: EntriesService,
   ){}
 
-  getEntires() {
+  getEntires(page :number) {
     this.entriesService
-      .getEntries()
+      .getEntries(page)
       .then(entries => this.entries = entries)
       .catch(error => this.error = error);
   }
 
   ngOnInit() {
-    //エントリ情報を取得
-    // this.entriesService.getEntries(0);
-    this.getEntires();
+    this.getEntires(1);
   }
 }

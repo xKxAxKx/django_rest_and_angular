@@ -10,7 +10,6 @@ import { EntriesComponent } from './components/entries.component';
 import { EntriesService } from './services/entries.service';
 import { DetailEntryComponent } from './components/detail-entry.component';
 import { DetailEntryService } from './services/detail-entry.service';
-import { DetailEntryStore } from './stores/detail-entry.store';
 
 
 @NgModule({
@@ -28,7 +27,6 @@ import { DetailEntryStore } from './stores/detail-entry.store';
   providers: [
     EntriesService,
     DetailEntryService,
-    DetailEntryStore
   ],
   bootstrap: [AppComponent]
 })

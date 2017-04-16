@@ -5,4 +5,7 @@
     <div class="panel-body pre-wrap" ng-bind="multiLineText">{{ results.body }}</div>
     <div class="panel-footer">{{ results.created_at | date}}</div>
   </div>
+  <nav *ngIf="entries.count > 5">
+      (I want to display pagination here)
+  </nav>
 </div>

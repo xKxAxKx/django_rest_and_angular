@@ -2,10 +2,10 @@ export interface IEntries {
   count: any,
   next: any,
   previous: any,
-  results: IResults[]
+  results: IEntry[]
 }
 
-export interface IResults {
+export interface IEntry {
   title: string,
   body: string,
   created_at: any,
